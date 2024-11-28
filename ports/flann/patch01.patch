@@ -1,0 +1,26 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 09a9be1..dd3c1f6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -173,6 +173,21 @@ else()
+     add_definitions( "-Wall -Wno-unknown-pragmas -Wno-unused-function" )
+ endif()
+ 
++
++if (CMAKE_SYSTEM_NAME MATCHES "Windows")
++   if ((CMAKE_GENERATOR MATCHES "MinGW Makefiles") OR
++       (CMAKE_GENERATOR MATCHES "MSYS Makefiles") OR
++       (CMAKE_GENERATOR MATCHES "Unix Makefiles"))
++
++      set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Og")
++
++      if (CMAKE_BUILD_TYPE STREQUAL  "")
++        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O1")
++      endif()
++   endif()
++endif()
++
++
+ # install and export variables
+ set(config_install_dir "lib/cmake/${PROJECT_NAME}")
+ set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")

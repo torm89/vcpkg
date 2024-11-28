@@ -10,6 +10,7 @@ vcpkg_from_github(
         fix-build-error.patch
         fix-dependency-hdf5.patch
         fix_undefined_pot_t.patch # https://github.com/opencv/opencv/pull/13270/
+        patch01.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
