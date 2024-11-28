@@ -10,8 +10,6 @@ vcpkg_from_github(
         fix-build-error.patch
         fix-dependency-hdf5.patch
         fix_undefined_pot_t.patch # https://github.com/opencv/opencv/pull/13270/
-        patch01.patch
-        patch02.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
@@ -32,7 +30,7 @@ vcpkg_cmake_configure(
         -DUSE_OPENMP=OFF
     OPTIONS_DEBUG 
         -DCMAKE_DEBUG_POSTFIX=d
-        -DCMAKE_CXX_FLAGS_DEBUG=-Os
+        -DCMAKE_CXX_FLAGS_DEBUG=-Og
 )
 
 vcpkg_cmake_install()
