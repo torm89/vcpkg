@@ -32,7 +32,7 @@ vcpkg_cmake_configure(
         -DUSE_OPENMP=OFF
     OPTIONS_DEBUG 
         -DCMAKE_DEBUG_POSTFIX=d
-        -DCMAKE_BUILD_TYPE=Release
+        -DCMAKE_CXX_FLAGS_DEBUG=-O0 -g3
 )
 
 vcpkg_cmake_install()
